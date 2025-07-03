@@ -1,0 +1,2 @@
+dify_plugin>=0.2.4,<0.4.0
+langchain-text-splitters~=0.3.8

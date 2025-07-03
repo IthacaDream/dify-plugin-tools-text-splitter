@@ -1,0 +1,58 @@
+description:
+  human:
+    en_US: splitting markdown text based on specified headers
+    zh_Hans: 根据指定的标题分割Markdown文本
+  llm: A tool for splitting markdown text based on specified headers.
+extra:
+  python:
+    source: tools/markdown_header_text_splitter.py
+identity:
+  author: ithacadream
+  label:
+    en_US: splitting markdown text based on specified headers
+    zh_Hans: 根据指定的标题分割Markdown文本
+  name: markdown_header_text_splitter
+parameters:
+- name: text
+  human_description:
+    en_US: markdown text to split
+    zh_Hans: 要分割的Markdown文本
+  label:
+    en_US: markdown text to split
+    zh_Hans: 要分割的Markdown文本
+  form: llm
+  required: true
+  type: string
+- name: headers_to_split_on
+  human_description:
+    en_US: Headers we want to track
+    zh_Hans: 是否需要跟踪的标题
+  label:
+    en_US: Headers we want to track
+    zh_Hans: 是否需要跟踪的标题
+  form: form
+  required: false
+  type: string
+  default: '[["#","Header 1"],["##","Header 2"],["###","Header 3"]]'
+- name: return_each_line
+  human_description:
+    en_US: Return each line w/ associated headers
+    zh_Hans: 是否返回每一行及相关标题
+  label:
+    en_US: Return each line w/ associated headers
+    zh_Hans: 是否返回每一行及相关标题
+  form: form
+  required: false
+  type: boolean
+  default: false
+- name: strip_headers
+  human_description:
+    en_US: Strip split headers from the content of the chunk
+    zh_Hans: 是否从切片内容中分离标题
+  label:
+    en_US: Strip split headers from the content of the chunk
+    zh_Hans: 是否从切片内容中分离标题
+  form: form
+  required: false
+  type: boolean
+  default: true

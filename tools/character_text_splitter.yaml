@@ -1,0 +1,80 @@
+description:
+  human:
+    en_US: splitting text
+    zh_Hans: 分割文本
+  llm: A tool for splitting text by look at characters.
+extra:
+  python:
+    source: tools/character_text_splitter.py
+identity:
+  author: ithacadream
+  label:
+    en_US: splitting text by fixed length
+    zh_Hans: 按指定长度分割文本
+  name: character_text_splitter
+parameters:
+- name: text
+  human_description:
+    en_US: text to split
+    zh_Hans: 要分割的文本
+  label:
+    en_US: text to split
+    zh_Hans: 要分割的文本
+  form: llm
+  required: true
+  type: string
+- name: separator
+  human_description:
+    en_US: separator
+    zh_Hans: 分割符
+  label:
+    en_US: separator
+    zh_Hans: 分割符
+  form: form
+  required: false
+  type: string
+  default: ""
+- name: chunk_size
+  human_description:
+    en_US: chunk size
+    zh_Hans: 分片的大小
+  label:
+    en_US: chunk size
+    zh_Hans: 分片的大小
+  form: form
+  required: false
+  type: number
+  default: 1000
+- name: chunk_overlap
+  human_description:
+    en_US: chunk overlap length
+    zh_Hans: 分片文本重合长度
+  label:
+    en_US: chunk overlap length
+    zh_Hans: 分片文本重合长度
+  form: form
+  required: false
+  type: number
+  default: 0
+- name: keep_separator
+  human_description:
+    en_US: Whether to keep the separator and where to place it in each corresponding chunk ('start' or 'end')
+    zh_Hans: 是否保留分割符，以及每个分片上保留分割符的位置（'start' or 'end'）
+  label:
+    en_US: Whether to keep the separator and where to place it in each corresponding chunk ('start' or 'end')
+    zh_Hans: 是否保留分割符，以及每个分片上保留分割符的位置（'start' or 'end'）
+  form: form
+  required: false
+  type: string
+  default: end
+- name: is_separator_regex
+  human_description:
+    en_US: Is separator a regular expression
+    zh_Hans: 分割符是否为正则表达式
+  label:
+    en_US: Is separator a regular expression
+    zh_Hans: 分割符是否为正则表达式
+  form: form
+  required: false
+  type: boolean
+  default: false

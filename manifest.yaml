@@ -1,0 +1,35 @@
+author: ithacadream
+created_at: '2025-07-01T08:03:44.658609186Z'
+description:
+  en_US: A tool for Splitting text.
+  zh_Hans: 一个用于分割文本的工具。
+icon: icon.svg
+label:
+  en_US: Text Splitter
+  zh_Hans: Text Splitter
+meta:
+  arch:
+  - amd64
+  - arm64
+  runner:
+    entrypoint: main
+    language: python
+    version: '3.12'
+  version: 0.0.1
+name: text_splitter
+plugins:
+  tools:
+  - provider/text_splitter.yaml
+resource:
+  memory: 268435456
+  permission:
+    model:
+      enabled: true
+      llm: true
+    tool:
+      enabled: true
+tags:
+- utilities
+- productivity
+type: plugin
+version: 0.0.1

@@ -1,0 +1,12 @@
+.DS_Store
+*.pyc
+venv/
+.venv/
+.vscode/
+mhelper.py
+logs
+.env
+.idea
+.venv/
+.scripts/
+*.difypkg
