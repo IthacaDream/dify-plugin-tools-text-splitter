@@ -14,9 +14,16 @@ class RecursiveCharacterTextSplitterTool(Tool):
         invoke tools
         """
         text = tool_parameters.get("text")
+        if not text:
+            yield self.create_text_message("Empty text")
+            return
         separators = tool_parameters.get("separators")
         if separators:
-            separators = json.loads(separators)
+            try:
+                separators = json.loads(separators)
+            except Exception:
+                yield self.create_text_message("Invalid separators")
+                return
         else:
             separators = [""]
         chunk_size = int(tool_parameters.get("chunk_size", "1000"))
@@ -24,9 +31,6 @@ class RecursiveCharacterTextSplitterTool(Tool):
         is_separator_regex = tool_parameters.get("is_separator_regex", False)
         keep_separator = tool_parameters.get("keep_separator", "end").lower()
 
-        if not text:
-            yield self.create_text_message("Empty text")
-            return
         if chunk_size < chunk_overlap or chunk_size <= 0:
             yield self.create_text_message("Invalid chunk_size or chunk_overlap")
             return

@@ -14,13 +14,17 @@ class MarkdownHeaderTextSplitterTool(Tool):
         invoke tools
         """
         text = tool_parameters.get("text")
-        headers_to_split_on = tool_parameters.get("headers_to_split_on")
-        headers_to_split_on = json.loads(headers_to_split_on)
-        return_each_line = tool_parameters.get("return_each_line", False)
-        strip_headers = tool_parameters.get("strip_headers", True)
         if not text:
             yield self.create_text_message("Empty text")
             return
+
+        try:
+            headers_to_split_on = json.loads(tool_parameters.get("headers_to_split_on"))
+        except Exception:
+            yield self.create_text_message("Invalid headers_to_split_on")
+            return
+        return_each_line = tool_parameters.get("return_each_line", False)
+        strip_headers = tool_parameters.get("strip_headers", True)
 
         try:
             text_splitter = MarkdownHeaderTextSplitter(
