@@ -34,7 +34,7 @@ class MarkdownTextSplitterTool(Tool):
                 is_separator_regex=is_separator_regex,
             )
             chunks = text_splitter.split_text(text)
-            yield self.create_json_message({"chunks": chunks})
+            yield self.create_variable_message("chunks", chunks)
         except Exception as e:
             logging.exception("Failed to split text")
             yield self.create_text_message(f"Failed to split text, error: {str(e)}")

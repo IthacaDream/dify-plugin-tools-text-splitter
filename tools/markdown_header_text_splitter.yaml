@@ -48,11 +48,22 @@ parameters:
 - name: strip_headers
   human_description:
     en_US: Strip split headers from the content of the chunk
-    zh_Hans: 是否从切片内容中分离标题
+    zh_Hans: 是否从分片内容中分离标题
   label:
     en_US: Strip split headers from the content of the chunk
-    zh_Hans: 是否从切片内容中分离标题
+    zh_Hans: 是否从分片内容中分离标题
   form: form
   required: false
   type: boolean
   default: true
+output_schema:
+    type: object
+    properties:
+      chunks:
+        type: array
+        items:
+          type: object
+        description: splitted chunks
+        label:
+          en_US: chunks
+          zh_Hans: 分片
