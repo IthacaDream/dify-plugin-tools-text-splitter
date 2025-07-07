@@ -30,7 +30,6 @@ class RecursiveCharacterTextSplitterTool(Tool):
         chunk_overlap = int(tool_parameters.get("chunk_overlap", "0"))
         is_separator_regex = tool_parameters.get("is_separator_regex", False)
         keep_separator = tool_parameters.get("keep_separator", "end").lower()
-
         if chunk_size < chunk_overlap or chunk_size <= 0:
             yield self.create_text_message("Invalid chunk_size or chunk_overlap")
             return
@@ -46,7 +45,7 @@ class RecursiveCharacterTextSplitterTool(Tool):
                 is_separator_regex=is_separator_regex,
             )
             chunks = text_splitter.split_text(text)
-            yield self.create_json_message({"chunks": chunks})
+            yield self.create_variable_message("chunks", chunks)
         except Exception as e:
             logging.exception("Failed to split text")
             yield self.create_text_message(f"Failed to split text, error: {str(e)}")

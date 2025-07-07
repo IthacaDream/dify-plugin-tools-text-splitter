@@ -6,7 +6,7 @@ description:
 icon: icon.svg
 label:
   en_US: Text Splitter
-  zh_Hans: Text Splitter
+  zh_Hans: 文本分割
 meta:
   arch:
   - amd64
@@ -15,7 +15,8 @@ meta:
     entrypoint: main
     language: python
     version: '3.12'
-  version: 0.0.1
+  version: 0.0.2
+  minimum_dify_version: 1.1.0
 name: text_splitter
 plugins:
   tools:
@@ -32,4 +33,4 @@ tags:
 - utilities
 - productivity
 type: plugin
-version: 0.0.1
+version: 0.0.2

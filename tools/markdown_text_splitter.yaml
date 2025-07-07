@@ -67,3 +67,14 @@ parameters:
   required: false
   type: boolean
   default: false
+output_schema:
+    type: object
+    properties:
+      chunks:
+        type: array
+        items:
+          type: string
+        description: splitted chunks
+        label:
+          en_US: chunks
+          zh_Hans: 分片
